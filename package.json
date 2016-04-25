@@ -8,7 +8,7 @@
     "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js --ext .jsx --cache",
-    "lint:fix": "eslint . --ext .js --ext .jsx --cache --fix"
+    "lint:fix": "eslint . --ext .js --ext .jsx --cache --fix",
     "test": "node node_modules/mocha/bin/_mocha \"./app/**/*.spec.js?(x)\" --compilers js:babel-register",
     "test:watch": "npm test -- --watch",
     "cover": "nyc --reporter=text-summary --reporter=lcov --require babel-register mocha \"./app/**/*.spec.js\""
