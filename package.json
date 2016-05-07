@@ -6,10 +6,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js --ext .jsx --cache",
     "lint:fix": "eslint . --ext .js --ext .jsx --cache --fix",
-    "test": "node node_modules/mocha/bin/_mocha \"./app/**/*.spec.js?(x)\" --compilers js:babel-register",
+    "test": "node node_modules/mocha/bin/_mocha \"./app/**/*.spec.js\" --compilers js:babel-register",
     "test:watch": "npm test -- --watch",
     "cover": "nyc --reporter=text-summary --reporter=lcov --require babel-register mocha \"./app/**/*.spec.js\""
   },
@@ -21,7 +20,8 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.5.0",
-    "babel-register": "^6.7.2",
+    "babel-register": "^6.8.0",
+    "chai": "^3.5.0",
     "css-loader": "^0.23.1",
     "eslint": "^2.8.0",
     "eslint-loader": "^1.3.0",
@@ -31,11 +31,22 @@
     "less-loader": "^2.2.3",
     "mocha": "^2.4.5",
     "nyc": "^6.4.0",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.0.2",
+    "react-addons-test-utils": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "skin-deep": "^0.16.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
     "webpack-merge": "^0.12.0"
+  },
+  "nyc": {
+    "extension": [
+      ".jsx"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "build"
+    ]
   }
 }
