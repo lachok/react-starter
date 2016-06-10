@@ -10,9 +10,11 @@ const PATHS = {
 }
 
 const common = {
-  entry: {
-    app: PATHS.app
-  },
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+    PATHS.app
+  ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
@@ -32,7 +34,7 @@ const common = {
       { 
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel?cacheDirectory'
+        loaders: ['react-hot', 'babel?cacheDirectory']
       },
       {
         test: /\.less$/,
