@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "clean": "rimraf ./build",
+    "build": "npm run clean && webpack",
     "start": "webpack-dev-server",
     "lint": "eslint . --ext .js --ext .jsx --cache",
     "lint:fix": "eslint . --ext .js --ext .jsx --cache --fix",
@@ -35,6 +36,7 @@
     "react-addons-test-utils": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
+    "rimraf": "^2.5.4",
     "skin-deep": "^0.16.0",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0-rc.0",
