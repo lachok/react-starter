@@ -10,17 +10,11 @@ const PATHS = {
 }
 
 const common = {
-  entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
-    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-    PATHS.app
-  ],
+  entry: {
+    app: PATHS.app
+  },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  output: {
-    path: PATHS.build,
-    filename: 'bundle.js'
   },
   resolveLoader: {
     moduleExtensions: ['-loader']

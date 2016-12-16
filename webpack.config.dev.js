@@ -3,6 +3,12 @@ const webpack = require('webpack')
 module.exports = (PATHS) => {
   return {
     devtool: 'eval-source-map',
+    output: {
+      filename  : '[name].[hash:6].js'
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
     devServer: {
       contentBase: PATHS.build,
 
@@ -25,9 +31,6 @@ module.exports = (PATHS) => {
       // localhost
       host: process.env.HOST,
       port: process.env.PORT
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
+    }
   }
 }
