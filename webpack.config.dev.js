@@ -12,7 +12,6 @@ module.exports = (PATHS) => {
       historyApiFallback: true,
       hot: true,
       inline: true,
-      progress: true,
 
       // Display only errors to reduce the amount of output.
       stats: 'errors-only',
