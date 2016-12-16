@@ -3,10 +3,17 @@ const webpack = require('webpack')
 module.exports = (PATHS) => {
   return {
     devtool: 'eval-source-map',
+    entry: {
+      hmr: [
+        'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+      ]
+    },
     output: {
       filename  : '[name].[hash:6].js'
     },
     plugins: [
+      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
