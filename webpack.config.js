@@ -1,6 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
-
+const html = require('html-webpack-plugin')
 
 const TARGET = process.env.npm_lifecycle_event
 
@@ -44,7 +44,10 @@ const common = {
         use: ['style', 'css', 'less']
       }
     ]
-  }
+  },
+  plugins: [
+    new html({template: './index.html'})
+  ]
 }
 
 if(TARGET === 'start' || !TARGET) {
