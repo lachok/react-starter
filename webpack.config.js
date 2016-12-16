@@ -16,30 +16,32 @@ const common = {
     PATHS.app
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
   },
+  resolveLoader: {
+    moduleExtensions: ['-loader']
+  },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loaders: ['eslint'],
+        enforce: 'pre',
+        use: ['eslint'],
         include: PATHS.app
-      }
-    ],
-    loaders: [
+      },
       { 
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?cacheDirectory']
+        use: ['react-hot', 'babel?cacheDirectory']
       },
       {
         test: /\.less$/,
-        loaders: ['style', 'css', 'less'],
-        include: PATHS.app
+        include: PATHS.app,
+        use: ['style', 'css', 'less']
       }
     ]
   }
